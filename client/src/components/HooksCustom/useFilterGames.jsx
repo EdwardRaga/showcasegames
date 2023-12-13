@@ -10,9 +10,10 @@ export default function useFilterGames(searchName, select, selectGenre) {
 
   useEffect(() => {
     setLoading(true);
-    let url = "https://showcasegames-dev-xkqb.3.us-1.fl0.io/videogames";
+    let url = `${process.env.REACT_APP_FETCH_BASE_URL}/videogames`;
     if (searchName.name.length > 0) {
       url = `${url}/games/search?name=${searchName.name}`;
+
     }
     fetch(url)
       .then((response) => response.json())
